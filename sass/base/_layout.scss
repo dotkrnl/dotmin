@@ -49,7 +49,7 @@
   }
 }
 
-#sidebar_control:hover ~ #sidebar,
+#sidebar_control:hover + #sidebar,
 #sidebar:hover, #sidebar.open {
   position: fixed;
   left: 0;
@@ -116,7 +116,7 @@ li.entry {
 
 @media only screen and (min-width: 971px) {
   #sidebar:hover, #sidebar.open {
-    ~ #main > .content {
+    + #main > .content {
       padding: 4em 5.5em 8em 20.5em;
     }
   }
@@ -168,7 +168,7 @@ li.entry {
       float: left;
       padding-right: 2em;
     }
-    ~ #main > .content {
+    + #main > .content {
       padding: 20em 5em 8em 5em;
     }
   }
@@ -195,7 +195,7 @@ li.entry {
   #sidebar.open {
     position: static;
     height: auto;
-    ~ #main > .content {
+    + #main > .content {
       padding: 2em 1.5em 8em 1.5em;
     }
   }

@@ -29,7 +29,8 @@
 $(document).ready(function(){
   var userAgent = navigator.userAgent.toLowerCase();
   var isiPhone = (userAgent.indexOf('iphone') != -1 || userAgent.indexOf('ipod') != -1) ? true : false;
-  clickEvent = isiPhone ? 'touchstart' : 'click';
+  var isAndroid = (userAgent.indexOf('android') != -1) ? true : false;
+  clickEvent = (isiPhone || isAndroid) ? 'touchstart' : 'click';
   $('#sidebar').on(clickEvent, function() {
     $(this).toggleClass('open');
   });

@@ -1,0 +1,10 @@
+{% if site.github_user %}
+<section>
+  <h2>github</h2>
+  {% if site.github_show_profile_link %}
+  <a href="https://github.com/{{site.github_user}}">@{{site.github_user}}</a>
+  {% endif %}
+  <ul id="gh_repos">
+  </ul>
+</section>
+{% endif %}

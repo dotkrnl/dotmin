@@ -1,0 +1,92 @@
+$color-dark: #272727 !default;
+$color-emph: #00585f !default;
+$color-light: #b0bf5a !default;
+$color-none: #fefefe !default;
+$color-simple: #a6a6a6 !default;
+
+$noise-bg: image-url('noise.png') top left !default;
+$img-border: inline-image('dotted-border.png') !default;
+
+$link-color: lighten(#165b94, 3) !default;
+
+// global color setup
+
+body {
+  background-color: $color-none;
+  color: $color-dark;
+  @include selection($color-emph, $color-none);
+}
+.content {
+  overflow: hidden;
+}
+
+.entry-content {
+  a {
+    color: $color-dark;
+    border-bottom: 2px dashed $color-dark; 
+    @include transition(0.5s);
+  }
+  a:hover {
+    color: $color-light;
+    border-bottom: 2px dashed $color-light; 
+  }
+}
+
+#main > footer {
+  background-color: $color-dark;
+  color: $color-none;
+  @include selection($color-light, $color-none);
+}
+
+#sidebar {
+  background-color: $color-dark;
+  color: $color-none;
+  @include selection($color-light, $color-none);
+  a {
+    color: $color-light;
+  }
+  a:hover {
+    color: $color-none;
+  }
+  h1 a {
+    color: $color-none;
+  }
+  h1 a:hover {
+    color: $color-light;
+  }
+}
+
+a {
+  color: $color-simple;
+  @include transition(0.5s);
+}
+a:hover {
+  color: $color-light;
+}
+
+.articlemeta {
+  background-color: $color-emph;
+}
+.articlemeta,
+.articlemeta a {
+  color: $color-none;
+}
+
+.articlemeta:hover {
+  background-color: $color-dark;
+}
+
+#disqus_thread {
+  border-top: 0.2em solid $color-emph;
+}
+
+h1, h1 a, h1 a:hover {
+  color: $color-emph;
+}
+
+.entry-title a {
+  color: $color-dark;
+}
+.entry-title a:hover {
+  color: $color-light;
+}

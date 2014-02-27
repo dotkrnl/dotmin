@@ -1,0 +1,30 @@
+{% capture root_url %}{{ site.root | strip_slash }}{% endcapture %}
+{% include head.html %}
+<body {% if page.body_id %} id="{{ page.body_id }}" {% endif %} {% if page.sidebar == false %} class="no-sidebar" {% endif %} {% if page.sidebar == 'collapse' or site.sidebar == 'collapse' %} class="collapse-sidebar sidebar-footer" {% endif %}>
+  <div id="sidebar_control"></div>
+  <div id="sidebar">
+    <div class="logo">
+      .krnl
+    </div>
+    <div class="content hide">
+      <section role="navigation">
+        <header role="banner">{% include header.html %}</header>
+        {% include navigation.html %}
+      </section>
+      {% if site.blog_index_asides.size %}
+        {% include_array blog_index_asides %}
+      {% else %}
+        {% include_array default_asides %}
+      {% endif %}
+    </div>
+  </div>
+  <div id="main">
+    <div class="content">
+      {{ content | expand_urls: root_url }}
+    </div>
+    <footer role="contentinfo">{% include footer.html %}</footer>
+    {% include after_footer.html %}
+  </div>
+  {% include scripts.html %}
+</body>
+</html>

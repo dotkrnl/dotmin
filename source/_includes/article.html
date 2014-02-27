@@ -1,0 +1,47 @@
+{% if index %}
+  {% unless page.no_header %}
+  <li class="entry {% if first == 'true' %}first-entry{% endif %}">
+    <h2 class="entry-title"><a href="{{ root_url }}{{ post.url }}">{% if site.titlecase %}{{ post.title | titlecase }}{% else %}{{ post.title }}{% endif %}</a></h2>
+    {% if first == 'true' %}
+      <div class="entry-content">{{ content | excerpt }}</div>
+      {% capture excerpted %}{{ content | has_excerpt }}{% endcapture %}
+      {% if excerpted == 'true' %}
+        <footer>
+          <a rel="full-article" href="{{ root_url }}{{ post.url }}">{{ site.excerpt_link }}</a>
+        </footer>
+      {% endif %}
+    {% endif %}
+  </li>
+  {% endunless %}
+{% else %}
+  {% unless page.no_header %}
+    <header>
+      <div class="back"><a href="/" onclick="history.go(-1);return false;">← Back</a></div>
+      <h1 class="entry-title">{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}</h1>
+    </header>
+  {% endunless %}
+  <div class="entry-content">{{ content }}</div>
+  <footer>
+    <div class="articlemeta">
+      <span class="hide">
+        {% include post/categories.html %} @
+        {% include post/date.html %}{% if updated %}{{ updated }}{% else %}{{ time }}{% endif %}
+      </span>
+      <span class="plus">
+        {% if site.disqus_short_name and page.comments != false and post.comments != false and site.disqus_show_comment_count == true %}
+          <a href="#disqus_thread" onclick="return false;" data-disqus-identifier="{% if post.meta.disqus_id %}{{ post.meta.disqus_id }}{% else %}{{ site.url }}{{ page.url }}{% endif %}">+</a>
+        {% else %}
+          <a href="#">+</a>
+        {% endif %}
+      </span>
+    </div>
+    {% unless page.sharing == false %}
+      {% include post/sharing.html %}
+    {% endunless %}
+    <div class="meta">
+      {% if page.previous.url %}
+        <a class="basic-alignment left" href="{{page.previous.url}}" title="Previous Post: {{page.previous.title}}">&laquo; {{page.previous.title}}</a>
+      {% endif %}
+    </div>
+  </footer>
+{% endif %}

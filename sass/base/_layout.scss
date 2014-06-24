@@ -16,6 +16,12 @@
   }
 }
 
+.entry-content {
+  p img {
+    max-width: 100%;
+  }
+}
+
 #sidebar_control {
   position: fixed;
   left: 0;
